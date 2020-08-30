@@ -77,8 +77,10 @@ namespace GeoTema_WPF_Offline_App.Windows.Dashboard.Views
         #region Reset_Click
         private void Reset_Click(object sender, RoutedEventArgs e)
         {
-            SQLToolbox.ResetPassword((UserModel)UserList.SelectedItem);
-            UserList.Items.Refresh();
+            UserModel reset = (UserModel)UserList.SelectedItem;
+            reset.Password = SQLToolbox.ResetPassword(reset);
+            MainViewModel.UserList.Remove(reset);
+            MainViewModel.UserList.Add(reset);
         }
         #endregion
 

@@ -94,26 +94,6 @@ namespace GeoTema_WPF_Offline_App.Models
         }
         #endregion
 
-        #region DeleteGeoData
-        /*DeleteGeoData
-         * Takes in GeoDataModel object to remove
-         * Returns 1 if successful
-         * Returns 0 if not
-         */
-        public static int DeleteGeoData(GeoDataModel RemovedGeoData)
-        {
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                using (SqlCommand cmd = new SqlCommand("DELETE FROM dbo.GeoTable WHERE ID = @ID", connection))
-                {
-                    cmd.Parameters.AddWithValue("@ID", RemovedGeoData.ID);
-                    connection.Open();
-                    return cmd.ExecuteNonQuery();
-                }
-            }
-        }
-        #endregion
-
         #region UpdateGeoData
         /*UpdateGeoData
          * Takes in GeoDataModel object to update
@@ -138,7 +118,27 @@ namespace GeoTema_WPF_Offline_App.Models
         }
         #endregion
 
-        #region GeoDataWithID
+        #region DeleteGeoData
+        /*DeleteGeoData
+         * Takes in GeoDataModel object to remove
+         * Returns 1 if successful
+         * Returns 0 if not
+         */
+        public static int DeleteGeoData(GeoDataModel RemovedGeoData)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                using (SqlCommand cmd = new SqlCommand("DELETE FROM dbo.GeoTable WHERE ID = @ID", connection))
+                {
+                    cmd.Parameters.AddWithValue("@ID", RemovedGeoData.ID);
+                    connection.Open();
+                    return cmd.ExecuteNonQuery();
+                }
+            }
+        }
+        #endregion
+
+        #region ReturnGeoDataWithID
         /*ReturnIDGeo
          * Takes GeoDataModel object to add id to
          * returns GeoDataModel object
@@ -298,7 +298,7 @@ namespace GeoTema_WPF_Offline_App.Models
         * Returns 1 if successful
         * Returns 0 if not
         */
-        public static int ResetPassword(UserModel User)
+        public static string ResetPassword(UserModel User)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -306,9 +306,10 @@ namespace GeoTema_WPF_Offline_App.Models
                 {
                     cmd.Parameters.AddWithValue("@ID", User.ID);
                     connection.Open();
-                    return cmd.ExecuteNonQuery();
+                    cmd.ExecuteNonQuery();
                 }
             }
+            return "Passw0rd1";
         }
         #endregion
         #endregion
