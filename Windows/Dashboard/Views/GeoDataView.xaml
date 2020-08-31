@@ -9,7 +9,6 @@
              mc:Ignorable="d" 
              d:DesignHeight="700" d:DesignWidth="1200">
     <UserControl.Resources>
-
         <local1:DotCommaConverter x:Key="DotCommaConv"/>
     </UserControl.Resources>
     <Grid>

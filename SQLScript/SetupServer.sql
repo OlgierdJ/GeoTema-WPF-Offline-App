@@ -14,6 +14,9 @@ create table [UserTable](
 [Type] tinyint not null)
 go
 
+insert into dbo.[UserTable] values ('Admin', 'Passw0rd1',3)
+go
+
 create table [GeoTable](
 [ID] int identity(1,1) primary key not null,
 [PostalCode] int not null,
