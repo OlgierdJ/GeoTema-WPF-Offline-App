@@ -9,7 +9,7 @@ namespace GeoTema_WPF_Offline_App.Models
 {
     public static class SQLToolbox
     {
-        const string connectionString = @"Data Source=DESKTOP-J909QOK\MSSQLSERVER01;Initial Catalog=GeoTema;User ID=Logon;Password=Passw0rd1";
+        const string connectionString = @"Data Source=10.0.4.114;Initial Catalog=GeoTema;Persist Security Info=True;User ID=Logon;Password=Passw0rd1";
 
         #region Login
         public static UserModel Login(string Username, string Password)
@@ -148,7 +148,7 @@ namespace GeoTema_WPF_Offline_App.Models
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                using (SqlCommand cmd = new SqlCommand("SELECT ID FROM dbo.GeoTable WHERE PostalCode=@PostalCode AND City='@City'", connection))
+                using (SqlCommand cmd = new SqlCommand("SELECT ID FROM dbo.GeoTable WHERE PostalCode=@PostalCode AND City=@City", connection))
                 {
                     cmd.Parameters.AddWithValue("@PostalCode",geoData.PostalCode);
                     cmd.Parameters.AddWithValue("@City",geoData.City);

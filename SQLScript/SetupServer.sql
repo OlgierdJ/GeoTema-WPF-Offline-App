@@ -1,10 +1,10 @@
 ﻿use master
 go
 
-create database [GeoTemaV2]
+create database [GeoTema]
 go
 
-use [GeoTemaV2]
+use [GeoTema]
 go
 
 create table [UserTable](
@@ -50,8 +50,8 @@ from CountryTable
 inner join [RankTable] ON CountryTable.Country = RankTable.[Country]
 go
 
+IF NOT EXISTS (SELECT * FROM sys.database_principals WHERE name = N'admin')
 CREATE LOGIN [admin] WITH PASSWORD = 'Passw0rd'
-GO
 GO
 IF NOT EXISTS (SELECT * FROM sys.database_principals WHERE name = N'admin')
 BEGIN

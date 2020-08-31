@@ -67,6 +67,7 @@
     <Compile Include="Models\SQLToolbox.cs" />
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Windows\Dashboard\Commands\UpdateViewCommand.cs" />
+    <Compile Include="Windows\Dashboard\Converter\DotCommaConverter.cs" />
     <Compile Include="Windows\Dashboard\DashboardWindow.xaml.cs">
       <DependentUpon>DashboardWindow.xaml</DependentUpon>
     </Compile>
